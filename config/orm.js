@@ -60,6 +60,7 @@ function printQuestionMarks(num) {
       queryString += ") ";
   
       console.log(queryString);
+      console.log(vals)
   
       connection.query(queryString, vals, function(err, result) {
         if (err) {
@@ -72,9 +73,11 @@ function printQuestionMarks(num) {
     // An example of objColVals would be {name: panther, sleepy: true}
     update: function(table, objColVals, condition, cb) {
       var queryString = "UPDATE " + table;
-  
+      console.log(objColVals)
       queryString += " SET ";
       queryString += objToSql(objColVals);
+      // queryString += "devoured=" + objColVals.devour;
+
       queryString += " WHERE ";
       queryString += condition;
   

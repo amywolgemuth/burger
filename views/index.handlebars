@@ -1,21 +1,40 @@
 <h1>Burgers!</h1>
-
 <h2>Burgers that are available to eat!</h2>
-
 <ul>
+ 
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-block devour=false}}
+    <li>
+       <div class="row">
+        <div class="col-md-6">
+          {{burger_name}}
+        </div>
+        <div class="col-md-4">
+            {{> burgers/burger-block devour=true}}
+        </div>
+      </div>
+      </li>
     {{/unless}}
   {{/each}}
 </ul>
+
 
 <h2>Burgers that have been devoured!</h2>
 
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devour=true}}
+     <li>
+       <div class="row">
+        <div class="col-md-6">
+          {{burger_name}}
+        </div>
+        <div class="col-md-4">
+            {{> burgers/burger-block devour=false}}
+        </div>
+      </div>
+      </li>
+
     {{/if}}
   {{/each}}
 </ul>
